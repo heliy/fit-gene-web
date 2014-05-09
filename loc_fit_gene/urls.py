@@ -11,5 +11,6 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'^fitgene/',views.index, name='index'),
+    url(r'^fitgene/$',views.index, name='index'),
+    url(r'^fitgene/action/$', views.action, name='action'),
 )
