@@ -1,3 +1,64 @@
-{{ statu }}
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<body>
+
+<img src="{% static "figs/chromosomes.jpg" %}" alt="chromosomes"/>
 <br>
-{{ chr_no }} -- {{ loc }}
+<h1>
+You find <sig>{{ loc }}</sig> in <sig>{{ chr_no }}</sig>.
+</h1> 
+{% if statu == 'null' %}
+    <h2>
+        <error>
+            BUT...WAIT!<br>
+            {% if chr_no == '' %}
+                You <take>NOT</take> input <take>CHROMOSOME</take><br>
+            {% endif%}
+            {% if loc == '' %}
+                You <take>NOT</take> input <take>LOCATION</take><br>
+            {% endif %}
+        JUST INPUT THEM RIGHT!<br>
+        </error>
+    </h2>
+{% endif %}
+{% if statu == 'chr'%}
+    <h2>
+         <error>BUT...WAIT!<br>Chromosome should be <take>1</take> to <take>22</take> or <take>X/Y</take><br>What <take>ON EARTH</take> are your input?<br>
+         </error>
+    </h2>
+{% endif %}
+{% if statu == 'loc'%}
+    <h2>
+         <error>BUT...WAIT!<br>location should be <take>non-negative integer</take><br>What <take>ON EARTH</take> are your input?<br>
+         </error>
+    </h2>
+{% endif %}
+{% if statu == 'beyond'%}
+    <h2>
+        <error>Sorry...Your location is ERROR<br>
+             The <take>MAX</take> location of Chr# <take>{{ chr_no }}</take> is <take>{{ display}}</take><br>
+             Your base in <take>OUT</take> of it<br>
+        </error>
+    </h2>
+{% endif %}
+{% if statu == 'display'%}
+    <h2>
+         <error>BUT...WAIT!<br> Display range should be <take>non-negative integer</take><br>What <take>ON EARTH</take> are your input?<br>
+         </error>
+    </h2>
+{% endif %}
+{% if statu == 'unfit' %}
+    <h2><result>Your location was <take>NOT</take> in gene<br></result>
+    </h2>
+{% endif %}
+{% if statu == 'fit' %}
+    <h2><sig>Location is in This Gene:</a><br>
+       <li><take>Entrez ID</take>:<a href="http://www.ncbi.nlm.nih.gov/gene/?term={{ fit.entrez }}">{{ fit.entrez }}</a></li>
+       <li><take>Gene Symbol</take>:{{ fit.symbol }}</li>
+       <li><take>Begin</take>:{{ fit.loc_begin }}</li>
+       <li><take>End</take>:{{ fit.loc_end }}</li></sig>
+    <h2>
+{% endif %}
+<br>
+<a href="../">GO BACK!</a>
+</body>

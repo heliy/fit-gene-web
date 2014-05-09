@@ -12,7 +12,7 @@ class Chr_len(models.Model):
 
 # 基因信息 
 class Gene(models.Model):
-    entrez = models.CharField("Entrez ID",max_length=20)
+    entrez = models.CharField("entrez ID",max_length=20)
     symbol = models.CharField("Gene Symbol",max_length=20)
     chr_no = models.CharField("Chr #",max_length=2)
     loc_begin = models.IntegerField("Begin")

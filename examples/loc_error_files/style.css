@@ -1,0 +1,39 @@
+body{
+    text-align:center;
+} 
+
+h1{
+    color: #blue;
+    font-size:250%;
+}
+
+h2{
+    color: #556B2f;
+    font-size:200%;
+}
+
+p{
+    font-size:150%;  
+}
+
+h2 take{
+    font-style: italic;
+    font-weight: normal;
+    color:#5F9EA0;
+}
+
+h1 sig{
+    font-style: italic;
+    font-weight: normal;
+    color: #5F7de2;    
+}
+h2 error{
+    font-size:250%;  
+}
+error take{
+    color: #DC143C;    
+}
+
+h2 result{
+    color: #FF3030;
+}

@@ -12,8 +12,7 @@ def index(request):
 def action(request):
     chr_no = request.GET['chr_no']
     loc = request.GET['loc']
-    display = request.GET['display']
-    context = action_context(chr_no,loc,display)
+    context = action_context(chr_no,loc)
     return render(request,'fitgene/action.html',context)
     
     

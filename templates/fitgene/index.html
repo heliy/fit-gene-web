@@ -1,6 +1,20 @@
-your location:<br>
+{% load staticfiles %}
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" />
+<body>
+<img src="{% static "figs/chromosomes.jpg" %}" alt="chromosomes"/>
+<br>
+<h1 >Input Your Location</h1>
+<br>
+<h2>
+<li><take>chromosome</take>:<br>Your location is in which chromosome?(1-22+XY)</li>
+<li><take>location</take>:<br>Which base pair in chromosome?</li>
+</h2>
+<br>
+<p>
         <form action="/fitgene/action/" method="get">  
-            <input type="text" name="chr_no">
-            <input type="text" name="loc"> 
-            <input type="text" name="display"> 
-            <input type="submit" value="Search">  
+   chromosome:<input type="text" name="chr_no"><br>&nbsp&nbsp&nbsp&nbsp&nbsp
+&nbsp location:<input type="text" name="loc"><br> <br>
+            <input type="submit" value="Fit Gene">  
+</p>
+<br>
+</body>
